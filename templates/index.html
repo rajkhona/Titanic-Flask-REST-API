@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Survival</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	Age	SibSp	Parch	Fare	Pclass_1	Pclass_2	Sex_female	Embarked_C	Embarked_Q
+
+        <input type="text" name="Age" placeholder="Passenger Age" required="required" />
+		<input type="text" name="SibSp" placeholder="Enter No of Siblings" required="required" />
+        <input type="text" name="Parch" placeholder="No of childrens / Elders" required="required" />
+		<input type="text" name="Fare" placeholder="Fare" required="required" />
+        <input type="text" name="Pclass_1" placeholder="Passenger Class- 1" required="required" />
+		<input type="text" name="Pclass_2" placeholder="Passenger class -2" required="required" />
+        <input type="text" name="Sex_female" placeholder="Gender Female" required="required" />
+		<input type="text" name="Embarked_C" placeholder="Embarked C" required="required" />
+        <input type="text" name="Embarked_Q" placeholder="Embarked Q" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
